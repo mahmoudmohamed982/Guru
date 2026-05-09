@@ -1,3 +1,65 @@
 <odoo>
 
+    <record id="view_factory_downtime_reason_form" model="ir.ui.view">
+        <field name="name">factory.downtime.reason.form</field>
+        <field name="model">factory.downtime.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="category"/>
+                            <field name="active"/>
+                        </group>
+
+                        <group>
+                            <field name="code" readonly="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_factory_downtime_reason_tree" model="ir.ui.view">
+        <field name="name">factory.downtime.reason.tree</field>
+        <field name="model">factory.downtime.reason</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_factory_downtime_reason_search" model="ir.ui.view">
+        <field name="name">factory.downtime.reason.search</field>
+        <field name="model">factory.downtime.reason</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_factory_downtime_reasons" model="ir.actions.act_window">
+        <field name="name">Downtime Reasons</field>
+        <field name="res_model">factory.downtime.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="downtime_reason_menu"
+        name="Downtime Reasons"
+        parent="factory_config_menu"
+        action="action_factory_downtime_reasons"
+    />
+
 </odoo>
