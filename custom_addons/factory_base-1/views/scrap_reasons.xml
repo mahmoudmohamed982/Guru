@@ -1,0 +1,61 @@
+<odoo>
+    <!-- Scrap Reason Form View -->
+    <record id="view_factory_scrap_reason_form" model="ir.ui.view">
+        <field name="name">factory.scrap.reason.form</field>
+        <field name="model">factory.scrap.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="active"/>
+                        <field name="code" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Scrap Reason Tree View -->
+    <record id="view_factory_scrap_reason_tree" model="ir.ui.view">
+        <field name="name">factory.scrap.reason.tree</field>
+        <field name="model">factory.scrap.reason</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Scrap Reason Search View -->
+    <record id="view_factory_scrap_reason_search" model="ir.ui.view">
+        <field name="name">factory.scrap.reason.search</field>
+        <field name="model">factory.scrap.reason</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Scrap Reason Action -->
+    <record id="action_factory_scrap_reason" model="ir.actions.act_window">
+        <field name="name">Scrap Reasons</field>
+        <field name="res_model">factory.scrap.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Scrap Reason Menu -->
+    <menuitem id="menu_factory_scrap_reason"
+        name="Scrap Reasons"
+        parent="factory_config_menu"
+        action="action_factory_scrap_reason"
+    />
+</odoo>

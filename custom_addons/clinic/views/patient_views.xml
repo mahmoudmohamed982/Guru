@@ -1,0 +1,125 @@
+<odoo>
+
+    <!-- ============================= -->
+    <!-- Form View -->
+    <!-- ============================= -->
+    <record id="clinic_patient_form" model="ir.ui.view">
+        <field name="name">clinic.patient.form</field>
+        <field name="model">patient.one</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+
+                    <!-- Title -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Patient Name"/>
+                        </h1>
+                        <div><field name="patient_code" placeholder="Patient Code" /></div>
+                    </div>
+
+                    <!-- Status -->
+                    <group>
+                        <field name="is_active_patient"/>
+                    </group>
+
+                    <!-- Tabs -->
+                    <notebook>
+
+                        <!-- Basic Information -->
+                        <page string="Basic Information">
+                            <group>
+                                <group>
+                                    <field name="doctor_id"/>
+                                    <field name="gender"/>
+                                    <field name="date_of_birth"/>
+                                    <field name="age" readonly="1"/>
+                                    <field name="blood_type"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Medical Information -->
+                        <page string="Medical Information">
+                            <group>
+                                <group>
+                                    <field name="height"/>
+                                    <field name="weight"/>
+                                </group>
+                                <group>
+                                    <field name="allergies"/>
+                                    <field name="chronic_diseases"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Administrative -->
+                        <page string="Administrative">
+                            <group>
+                                <field name="room_number"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- Tree View -->
+    <!-- ============================= -->
+    <record id="clinic_patient_tree" model="ir.ui.view">
+        <field name="name">clinic.patient.tree</field>
+        <field name="model">patient.one</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="patient_code"/>
+                <field name="name"/>
+                <field name="doctor_id"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="room_number"/>
+                <field name="is_active_patient"/>
+            </tree>
+        </field>
+    </record>
+    <!-- ============================= -->
+    <!-- Search View -->
+    <!-- ============================= -->
+    <record id="clinic_patient_search" model="ir.ui.view">
+        <field name="name">clinic.patient.search</field>
+        <field name="model">patient.one</field>
+        <field name="arch" type="xml">
+            <search string="Search Patients">
+                <field name="name"/>
+                <field name="patient_code"/>
+                <filter name="is_male" string="Is Male" domain="[('gender','=','male')]"/>
+                <filter name="group_gender" string="Male" context="{'group_by':'gender'}"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- ============================= -->
+    <!-- Action -->
+    <!-- ============================= -->
+    <record id="action_clinic_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">patient.one</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ============================= -->
+    <!-- Menu -->
+    <!-- ============================= -->
+    <menuitem
+        id="patient_menu_item"
+        name="Patients"
+        parent="patient_menu"
+        action="action_clinic_patient"
+        sequence="10"
+    />
+
+</odoo>

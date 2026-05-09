@@ -1,0 +1,19 @@
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem
+        id="root_clinic_menu"
+        name="Clinic"
+    />
+    <!-- nav menu -->
+    <menuitem
+        id="patient_menu"
+        name="Patient"
+        parent="root_clinic_menu"
+    />
+    <menuitem
+        id="doctor_menu"
+        name="Doctor"
+        parent="root_clinic_menu"
+    />
+</odoo>

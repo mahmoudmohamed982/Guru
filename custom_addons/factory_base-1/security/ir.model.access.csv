@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_production_lines,factory.production.line,model_factory_production_line,,1,1,1,1
+access_shift,factory.shift,model_factory_shift,,1,1,1,1
+access_machine,factory.machine,model_factory_machine,,1,1,1,1
+access_operation_stage,factory.operation.stage,model_factory_operation_stage,,1,1,1,1
+access_scrap_reason,factory.scrap.reason,model_factory_scrap_reason,,1,1,1,1
+access_downtime_reason,factory.downtime.reason,model_factory_downtime_reason,,1,1,1,1

@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem
+    id="factory_root_menu"
+    name="Factory"
+    />
+        <menuitem
+    id="factory_config_menu"
+    name="Configration"
+    parent="factory_root_menu"
+    />
+
+    
+</odoo>

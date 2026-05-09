@@ -1,0 +1,52 @@
+<odoo>
+
+    <!-- Production Line Sequence -->
+    <record id="seq_factory_production_line" model="ir.sequence">
+        <field name="name">Production Line</field>
+        <field name="code">factory.production.line</field>
+        <field name="prefix">PL-</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Machine Sequence -->
+    <record id="seq_factory_machine" model="ir.sequence">
+        <field name="name">Machine</field>
+        <field name="code">factory.machine</field>
+        <field name="prefix">MC-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- Downtime Reasons Sequence -->
+    <record id="seq_factory_downtime_reason" model="ir.sequence">
+        <field name="name">Downtime Reason</field>
+        <field name="code">factory.downtime.reason</field>
+        <field name="prefix">DTR-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- Operation Stage Sequence -->
+    <record id="seq_factory_operation_stage" model="ir.sequence">
+        <field name="name">Operation Stage</field>
+        <field name="code">factory.operation.stage</field>
+        <field name="prefix">OS-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- Shift Sequence -->
+    <record id="seq_factory_shift" model="ir.sequence">
+        <field name="name">Shift</field>
+        <field name="code">factory.shift</field>
+        <field name="prefix">SH-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- Scrap Reason Sequence -->
+    <record id="seq_factory_scrap_reason" model="ir.sequence">
+        <field name="name">Scrap Reason</field>
+        <field name="code">factory.scrap.reason</field>
+        <field name="prefix">SR-</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

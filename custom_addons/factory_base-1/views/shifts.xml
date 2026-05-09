@@ -1,0 +1,70 @@
+<odoo>
+    <!-- Shift Form View -->
+    <record id="view_factory_shift_form" model="ir.ui.view">
+        <field name="name">factory.shift.form</field>
+        <field name="model">factory.shift</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="active"/>
+                        <field name="code" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="start_time" widget="float_time"/>
+                        <field name="end_time" widget="float_time"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Shift Tree View -->
+    <record id="view_factory_shift_tree" model="ir.ui.view">
+        <field name="name">factory.shift.tree</field>
+        <field name="model">factory.shift</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+                <field name="code"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Shift Search View -->
+    <record id="view_factory_shift_search" model="ir.ui.view">
+        <field name="name">factory.shift.search</field>
+        <field name="model">factory.shift</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Shift Action -->
+    <record id="action_factory_shift" model="ir.actions.act_window">
+        <field name="name">Shifts</field>
+        <field name="res_model">factory.shift</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Shift Menu -->
+    <menuitem id="menu_factory_shift"
+        name="Shifts"
+        parent="factory_config_menu"
+        action="action_factory_shift"
+    />
+</odoo>
