@@ -32,7 +32,9 @@ class SaleOrder(models.Model):
         for line in self.order_line:
             lines.append((0,0,{ 
                 "thikness": line.thikness, 
-                "color":line.color
+                "color":line.color,
+                "priority":line.priority,
+                 "material_grade":line.material_grade
             }))
         self.env['factory.production.request'].create(
 
