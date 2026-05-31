@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_factory_" model="ir.sequence">
+        <field name="name">Factory </field>
+        <field name="code">factory.</field>
+        <field name="prefix">/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

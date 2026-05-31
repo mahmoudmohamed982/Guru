@@ -1,0 +1,73 @@
+<odoo>
+
+    <!-- =========================
+        SALE ORDER FORM INHERIT
+    ========================== -->
+
+    <record id="view_sale_order_form_inherit_factory"
+            model="ir.ui.view">
+
+        <field name="name">
+            sale.order.form.inherit.factory
+        </field>
+
+        <field name="model">sale.order</field>
+
+        <field name="inherit_id"
+               ref="sale.view_order_form"/>
+
+        <field name="arch" type="xml">
+
+
+            <!-- =========================
+                    SMART BUTTON
+            ========================== -->
+
+            <xpath expr="//div[@name='button_box']"
+                   position="inside">
+
+                <button type="object"
+                        name="action_view_production_requests"
+                        class="oe_stat_button"
+                        icon="fa-industry">
+
+                    <field name="count_production_request_ids"
+                           widget="statinfo"
+                           string="Production Requests"/>
+
+                </button>
+
+            </xpath>
+
+
+            <!-- =========================
+                    EXTRA TAB
+            ========================== -->
+
+            <xpath expr="//notebook"
+                   position="inside">
+
+                <page string="Production Requests">
+
+                    <field name="production_request_ids">
+
+                        <tree readonly="1">
+
+                            <field name="name"/>
+                            <field name="date_request"/>
+                            <field name="date_planned"/>
+                            <field name="state"/>
+
+                        </tree>
+
+                    </field>
+
+                </page>
+
+            </xpath>
+
+        </field>
+
+    </record>
+
+</odoo>

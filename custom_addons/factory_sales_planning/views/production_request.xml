@@ -1,0 +1,149 @@
+<odoo>
+
+    <!-- =========================
+            TREE VIEW
+    ========================== -->
+
+    <record id="view_factory_production_request_tree" model="ir.ui.view">
+        <field name="name">factory.production.request.tree</field>
+        <field name="model">factory.production.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id"/>
+                <field name="date_request"/>
+                <field name="date_planned"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- =========================
+            FORM VIEW
+    ========================== -->
+
+    <record id="view_factory_production_request_form" model="ir.ui.view">
+        <field name="name">factory.production.request.form</field>
+        <field name="model">factory.production.request</field>
+        <field name="arch" type="xml">
+            <form string="Production Request">
+
+                <header>
+
+                    <button name="action_confirm"
+                            type="object"
+                            string="Confirm"
+                            class="btn-primary"
+                            states="draft"/>
+
+                    <button name="action_set_in_progress"
+                            type="object"
+                            string="Start Production"
+                            class="btn-primary"
+                            states="confirmed"/>
+
+                    <button name="action_done"
+                            type="object"
+                            string="Done"
+                            class="btn-success"
+                            states="in_progress"/>
+
+                    <button name="action_cancel"
+                            type="object"
+                            string="Cancel"
+                            class="btn-danger"
+                            states="draft,confirmed,in_progress"/>
+
+                    <button name="action_reset_draft"
+                            type="object"
+                            string="Reset Draft"
+                            states="cancelled"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,in_progress,done"/>
+                </header>
+
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="sale_order_id"/>
+                            <field name="partner_id"/>
+                        </group>
+
+                        <group>
+                            <field name="date_request"/>
+                            <field name="date_planned"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+
+                        <page string="Production Lines">
+
+                            <field name="line_ids">
+
+                                <tree editable="bottom">
+
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="qty_planned"/>
+                                    <field name="uom_id" readonly="1"/>
+
+                                    <field name="thickness"/>
+                                    <field name="length"/>
+                                    <field name="color"/>
+                                    <field name="material_grade"/>
+                                    <field name="priority"/>
+
+                                </tree>
+
+                            </field>
+
+                        </page>
+
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+
+                <chatter/>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!-- =========================
+            ACTION
+    ========================== -->
+
+    <record id="action_factory_production_request" model="ir.actions.act_window">
+        <field name="name">Production Requests</field>
+        <field name="res_model">factory.production.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- =========================
+            MENU
+    ========================== -->
+
+
+
+    <menuitem id="menu_factory_production_request"
+              name="Production Requests"
+              parent="menu_factory_root"
+              action="action_factory_production_request"/>
+
+</odoo>

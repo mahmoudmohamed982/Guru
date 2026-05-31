@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_factory_production_request" model="ir.sequence">
+        <field name="name">Factory Production Request</field>
+        <field name="code">factory.production.request</field>
+        <field name="prefix">PR/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
