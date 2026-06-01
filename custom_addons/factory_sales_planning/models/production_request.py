@@ -38,7 +38,7 @@ class FactoryProductionRequest(models.Model):
         ('cancelled', 'Cancelled'),
         ],traking=True, string="State" , default='draft')
 
-    date_request-fields.Date(
+    date_request=fields.Date(
         string="Request Date",
         default=fields.Date.today
     )
